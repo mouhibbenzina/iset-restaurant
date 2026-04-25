@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: iset-zaghouan-restaurant-api
+    env: node
+    region: frankfurt  # Closest free region to Tunisia
+    plan: free
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: FRONTEND_URL
+        sync: false  # Set this in Render dashboard after Vercel deploy
+    healthCheckPath: /api/health
+    autoDeploy: true
