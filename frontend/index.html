@@ -188,11 +188,11 @@
     <div class="nav-name">Restaurant ISET<span>Zaghouan — Mostafa Khraief</span></div>
   </a>
   <div class="nav-links" role="menubar">
-    <button class="nav-link active" role="menuitem" onclick="scrollTo('hero')">Accueil</button>
-    <button class="nav-link" role="menuitem" onclick="scrollTo('menu')">Menu</button>
-    <button class="nav-link" role="menuitem" onclick="scrollTo('abonnement')">Abonnements</button>
-    <button class="nav-link" role="menuitem" onclick="scrollTo('reservation')">Réservations</button>
-    <button class="nav-link" role="menuitem" onclick="scrollTo('tracking')">Suivi</button>
+    <button class="nav-link active" role="menuitem" onclick="goTo('hero')">Accueil</button>
+    <button class="nav-link" role="menuitem" onclick="goTo('menu')">Menu</button>
+    <button class="nav-link" role="menuitem" onclick="goTo('abonnement')">Abonnements</button>
+    <button class="nav-link" role="menuitem" onclick="goTo('reservation')">Réservations</button>
+    <button class="nav-link" role="menuitem" onclick="goTo('tracking')">Suivi</button>
   </div>
   <div class="nav-right">
     <div class="ramadan-pill" id="ramadanPill" style="display:none" aria-label="Mode Ramadan actif">☪️ Ramadan</div>
@@ -212,8 +212,8 @@
     <p class="hero-arabic" lang="ar" aria-label="مطعم المعهد العالي للدراسات التكنولوجية زغوان">مطعم المعهد العالي للدراسات التكنولوجية — زغوان</p>
     <p class="hero-desc">Cuisine tunisienne authentique préparée avec soin, pour étudiants, enseignants et personnel de l'ISET Zaghouan. Menu renouvelé chaque jour.</p>
     <div class="hero-btns">
-      <button class="btn-primary" onclick="scrollTo('menu')" aria-label="Voir le menu complet">📋 Voir le Menu</button>
-      <button class="btn-outline" onclick="scrollTo('reservation')">📅 Réserver une Table</button>
+      <button class="btn-primary" onclick="goTo('menu')" aria-label="Voir le menu complet">📋 Voir le Menu</button>
+      <button class="btn-outline" onclick="goTo('reservation')">📅 Réserver une Table</button>
     </div>
     <div class="hero-stats" role="list" aria-label="Statistiques du restaurant">
       <div class="hero-stat" role="listitem">
@@ -377,10 +377,10 @@
       </div>
       <div class="footer-col">
         <h4>Navigation</h4>
-        <a href="#menu" onclick="scrollTo('menu')">Menu du Jour</a>
-        <a href="#abonnement" onclick="scrollTo('abonnement')">Abonnements</a>
-        <a href="#reservation" onclick="scrollTo('reservation')">Réservations</a>
-        <a href="#tracking" onclick="scrollTo('tracking')">Suivi Commandes</a>
+        <a href="#menu" onclick="goTo('menu')">Menu du Jour</a>
+        <a href="#abonnement" onclick="goTo('abonnement')">Abonnements</a>
+        <a href="#reservation" onclick="goTo('reservation')">Réservations</a>
+        <a href="#tracking" onclick="goTo('tracking')">Suivi Commandes</a>
         <a id="footerSahour" href="#menu" style="display:none">Menu Sahour ☪️</a>
         <a id="footerIftar" href="#menu" style="display:none">Menu Iftar ☪️</a>
       </div>
