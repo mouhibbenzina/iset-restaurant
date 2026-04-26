@@ -15,23 +15,26 @@ const PORT = process.env.PORT || 4000;
 const ALLOWED_ORIGINS = [
   'http://localhost:5173',
   'http://localhost:3000',
-  process.env.FRONTEND_URL, // e.g. https://iset-zaghouan-restaurant.vercel.app
+  'https://iset-restaurant.vercel.app',
+  process.env.FRONTEND_URL,
 ].filter(Boolean);
 
-// ─── Global Middleware ────────────────────────────────────────────────────────
-app.set('trust proxy', 1); // Render uses proxies
-app.use(securityHeaders);
-app.use(cors({
+const corsOptions = {
   origin: (origin, callback) => {
-    // Allow requests with no origin (mobile apps, Postman, curl)
     if (!origin || ALLOWED_ORIGINS.includes(origin)) return callback(null, true);
     callback(new Error(`CORS: Origin ${origin} not allowed`));
   },
-  methods: ['GET', 'POST', 'PATCH', 'OPTIONS'],
+  methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: false,
-}));
-app.use(express.json({ limit: '10kb' })); // Limit body size
+};
+
+// ─── Global Middleware ────────────────────────────────────────────────────────
+app.set('trust proxy', 1);
+app.use(securityHeaders);
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
+app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: false, limit: '10kb' }));
 app.use(morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'));
 app.use(globalLimiter);
