@@ -380,7 +380,7 @@ window.subscribe = function(type, price) {
 };
 
 // ─── Utils ────────────────────────────────────────────────────────────────────
-window.scrollTo = function(id) {
+window.goTo = function(id) {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 };
 
